@@ -1,81 +1,116 @@
 {
     "cards": [
       {
-        "Name": "contact",
+        "Name": "red-red-red-red",
         "left": "true",
         "right": "true",
         "up": "true",
         "down": "true"
       },
       {
-        "Name": "Education",
+        "Name": "red-blue-red-blue",
         "left": "false",
         "right": "false",
         "up": "true",
         "down": "true"
       },
       {
-        "Name": "Git hub",
+        "Name": "red-red-blue-blue",
         "left": "false",
         "right": "true",
         "up": "true",
         "down": "false"
       },
       {
-        "Name": "Hobbies",
+        "Name": "blue-red-red-blue",
         "left": "false",
         "right": "true",
         "up": "false",
         "down": "true"
       },
       {
-        "Name": "languages",
+        "Name": "blue-blue-red-red",
         "left": "true",
         "right": "false",
         "up": "false",
         "down": "true"
       },
       {
-        "Name": "Mutant Advanced",
+        "Name": "blue-blue-blue-red",
         "left": "true",
         "right": "false",
         "up": "false",
         "down": "false"
       },
       {
-        "Name": "Nucleus Bellum",
+        "Name": "blue-blue-red-blue",
         "left": "false",
         "right": "false",
         "up": "false",
         "down": "true"
       },
       {
-        "Name": "Personal Information",
+        "Name": "red-blue-blue-red",
         "left": "true",
         "right": "false",
         "up": "true",
         "down": "false"
       },
       {
-        "Name": "Quantum Enclave",
+        "Name": "blue-red-blue-blue",
         "left": "false",
         "right": "true",
         "up": "false",
         "down": "false"
       },
       {
-        "Name": "Quboo",
+        "Name": "red-blue-blue-blue",
         "left": "false",
         "right": "false",
         "up": "true",
         "down": "false"
       },
       {
-        "Name": "Work Experience",
+        "Name": "blue-red-blue-red",
         "left": "true",
         "right": "true",
         "up": "false",
         "down": "false"
+      },
+      {
+        "Name": "blue-blue-blue-blue",
+        "left": "false",
+        "right": "false",
+        "up": "false",
+        "down": "false"
+      },
+      {
+        "Name": "blue-red-red-red",
+        "left": "true",
+        "right": "true",
+        "up": "false",
+        "down": "true"
+      },
+      {
+        "Name": "red-blue-red-red",
+        "left": "true",
+        "right": "false",
+        "up": "true",
+        "down": "true"
+      },
+      {
+        "Name": "red-red-blue-red",
+        "left": "true",
+        "right": "true",
+        "up": "true",
+        "down": "false"
+      },
+      {
+        "Name": "red-red-red-blue",
+        "left": "false",
+        "right": "true",
+        "up": "true",
+        "down": "true"
       }
     ]
   }

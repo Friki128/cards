@@ -1,3 +1,23 @@
+import cardsList from '../json/cards.json'
+const images = {
+    redredredred: require('../img/red-red-red-red.webp'),
+    blueredredred: require('../img/blue-red-red-red.webp'),
+    redblueredred: require('../img/red-blue-red-red.webp'),
+    redredbluered: require('../img/red-red-blue-red.webp'),
+    redredredblue: require('../img/red-red-red-blue.webp'),
+    blueblueblueblue: require('../img/blue-blue-blue-blue.webp'),
+    redblueblueblue: require('../img/red-blue-blue-blue.webp'),
+    blueredblueblue: require('../img/blue-red-blue-blue.webp'),
+    blueblueredblue: require('../img/blue-blue-red-blue.webp'),
+    bluebluebluered: require('../img/blue-blue-blue-red.webp'),
+    redredblueblue: require('../img/red-red-blue-blue.webp'),
+    redblueredblue: require('../img/red-blue-red-blue.webp'),
+    redbluebluered: require('../img/red-blue-blue-red.webp'),
+    blueredredblue: require('../img/blue-red-red-blue.webp'),
+    blueredbluered: require('../img/blue-red-blue-red.webp'),
+    blueblueredred: require('../img/blue-blue-red-red.webp')
+}
+
 const handPositions = document.querySelectorAll(".hand");
 const startgameButton = document.querySelector("button");
 const boardTiles = document.querySelectorAll(".board .row .tile");
@@ -14,16 +34,19 @@ boardTiles.forEach(element => {
         let x = parseInt(element.getAttribute("x"))
         let y = parseInt(element.getAttribute("y"));
         if(validatePlacing(x, y)){
-        element.innerHTML = "<img src=\"img/"+ hand[selected].Name +".jpg\"/>"
-        board[y][x] = hand[selected];
-        draw(selected);
+            const img = document.createElement('img');
+            img.src =  images[hand[selected].Name.replace(/-/g, "")]
+            element.innerHTML = ""
+            element.appendChild(img);
+            board[y][x] = hand[selected];
+            draw(selected);
         if(checkWin()){
             alert("You win!!!");
         }
     }
     })
 });
-let cards;
+let cards = cardsList.cards;
 let board;
 let hand;
 
@@ -56,20 +79,6 @@ function checkWin(){
     }
     return true;
 }
-
-function loadJson(){
-    fetch("../json/cards.json")
-        .then(response => {
-            if (response.ok) return response.json();
-            else {
-                alert("No s'ha pogut completar la càrrega. Error " + response.status)
-            }
-        })
-        .then(data => {
-            cards = data["cards"];
-        });
-        
-}
 function startGame(){
     board = [[null, null, null, null], [null, null, null, null], [null, null, null, null]];
     hand = [null, null, null];
@@ -84,11 +93,15 @@ function startGame(){
 function draw(id){
     let value = getRandomCardValue();
     hand[id] = cards[value];
-    handPositions[id].innerHTML = "<img src=\"img/"+ cards[value].Name +".jpg\"/>"
+    const img = document.createElement('img');
+    img.src = images[hand[id].Name.replace(/-/g, "")]
+    handPositions[id].innerHTML = "";
+    handPositions[id].appendChild(img);
 }
 
 function getRandomCardValue(){
     let value = Math.round(Math.random() * 10);
     return value;
 }
-loadJson();
+
+

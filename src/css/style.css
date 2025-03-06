@@ -2,8 +2,6 @@
     margin: 0 0;
 }
 body{
-    background-image: url("../img/back.jpg");
-    background-repeat: no-repeat;
     height:100vh;
     background-size: cover;
     display: flex;
