@@ -1217,6 +1217,11 @@ button {
   justify-content: center;
 }
 
+.selected{
+  border: 2px solid var(--color2);
+  border-radius: 10px;
+}
+
 @media only screen and (max-width: 768px) {
   .tile {
     width: 47px;
