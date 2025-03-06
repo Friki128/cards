@@ -1,0 +1,78 @@
+@import "tailwindcss";
+*{
+    margin: 0 0;
+}
+body{
+    background-image: url("../img/back.jpg");
+    background-repeat: no-repeat;
+    height:100vh;
+    background-size: cover;
+    display: flex;
+    flex-direction: row;
+}
+.tile{
+    border: 2px solid black;
+    height: 264px;
+    width: 189px;
+    margin: 0 0;
+    padding: 0 0;
+}
+
+img{
+    width: 100%;
+    height: 100%;
+}
+.container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: 1%;
+}
+h1{
+    display: fle;
+}
+.board{
+    width: 756px;
+}
+.presentation{
+    width: 33%;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+}
+.text{
+    text-align: center;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    color: green;
+}
+button{
+    width: 50px;
+}
+.selected{
+    border: 2px solid yellow;
+}
+@media only screen and (max-width: 768px) {
+    .tile{
+        width: 47px;
+        height: 66px;
+    }
+    .board{
+        width: 189px;
+        margin: 0 auto;
+    }
+    .container{
+        flex-direction: column-reverse;
+        justify-content: start;
+    }
+    .presentation{
+        width: 100%;
+    }
+    .hand-base{
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+    }
+}
