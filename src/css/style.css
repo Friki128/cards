@@ -75,16 +75,6 @@ img{
 .board{
     width: 756px;
 }
-.presentation{
-    width: 33%;
-}
-.text{
-    text-align: center;
-    flex-direction: column;
-    display: flex;
-    align-items: center;
-    color: green;
-}
 button{
     width: 50px;
 }
