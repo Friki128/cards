@@ -1,4 +1,5 @@
 import cardsList from '../json/cards.json'
+import base from '../img/base.webp'
 const images = {
     redredredred: require('../img/red-red-red-red.webp'),
     blueredredred: require('../img/blue-red-red-red.webp'),
@@ -19,32 +20,56 @@ const images = {
 }
 
 const handPositions = document.querySelectorAll(".hand");
-const startgameButton = document.querySelector("button");
+const startgameButton = document.querySelector(".start_button");
 const boardTiles = document.querySelectorAll(".board .row .tile");
 let selected = 0;
+
+function handleHand(element){
+    handPositions[selected].classList.remove("selected");
+    selected = parseInt(element.id);
+    element.classList.add("selected");
+}
+
 handPositions.forEach(element => {
     element.addEventListener("click", function(){
-        handPositions[selected].classList.remove("selected");
-        selected = parseInt(this.id);
-        this.classList.add("selected");
+       handleHand(this)
     })
+    
+element.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        handleHand(this);
+    }
 });
+
+});
+
+function handleBoard(element){
+    let x = parseInt(element.getAttribute("x"))
+    let y = parseInt(element.getAttribute("y"));
+    if(validatePlacing(x, y)){
+        const img = document.createElement('img');
+        img.src =  images[hand[selected].Name.replace(/-/g, "")]
+        img.ariaLabel = hand[selected].Name
+        element.innerHTML = ""
+        element.appendChild(img);
+        board[y][x] = hand[selected];
+        draw(selected);
+    if(checkWin()){
+        alert("You win!!!");
+    }
+}
+}
+
 boardTiles.forEach(element => {
     element.addEventListener("click", function(){
-        let x = parseInt(element.getAttribute("x"))
-        let y = parseInt(element.getAttribute("y"));
-        if(validatePlacing(x, y)){
-            const img = document.createElement('img');
-            img.src =  images[hand[selected].Name.replace(/-/g, "")]
-            element.innerHTML = ""
-            element.appendChild(img);
-            board[y][x] = hand[selected];
-            draw(selected);
-        if(checkWin()){
-            alert("You win!!!");
-        }
-    }
+        handleBoard(this)
     })
+
+    element.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            handleBoard(this);
+        }
+    });
 });
 let cards = cardsList.cards;
 let board;
@@ -83,7 +108,7 @@ function startGame(){
     board = [[null, null, null, null], [null, null, null, null], [null, null, null, null]];
     hand = [null, null, null];
     boardTiles.forEach(element => {
-        element.innerHTML = "";
+        element.innerHTML = "<img src=\""+ base +"\" alt=\"empty\" aria-label=\"empty\">";
     });
     draw(0);
     draw(1);
@@ -95,12 +120,14 @@ function draw(id){
     hand[id] = cards[value];
     const img = document.createElement('img');
     img.src = images[hand[id].Name.replace(/-/g, "")]
+    img.ariaLabel = hand[id].Name
     handPositions[id].innerHTML = "";
     handPositions[id].appendChild(img);
+    handPositions[id].tabIndex = "0"
 }
 
 function getRandomCardValue(){
-    let value = Math.round(Math.random() * 10);
+    let value = Math.round(Math.random() * 15);
     return value;
 }
 

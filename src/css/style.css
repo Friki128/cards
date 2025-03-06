@@ -1,42 +1,82 @@
 *{
-    margin: 0 0;
+    --color1: #000000;
+    --color2: #92DCE5;
+    --color3: #EEE5E9;
+    --color4: #7C7C7C;
+    --color5: #D64933;
+    user-select: none;
+    line-height: 1.5;
+    letter-spacing: 2;
+    word-spacing: 0.16;
 }
 body{
     height:100vh;
     background-size: cover;
-    display: flex;
-    flex-direction: row;
+    background-color: var(--color1);
 }
 .tile{
-    border: 2px solid black;
     height: 264px;
     width: 189px;
     margin: 0 0;
     padding: 0 0;
+    user-select: none;
+}
+
+
+*:focus-visible{
+    border: 2px solid var(--color5);
+    outline: none;
+}
+
+.nav-link{
+   color: var(--color3);
+}
+
+.nav-link:hover{
+    color: var(--color1);
+    background-color: var(--color3);
+}
+
+.nav-link:focus-visible{
+    color: var(--color3);
+    outline: none;
+}
+
+.active{
+    color: var(--color3)
 }
 
 img{
     width: 100%;
     height: 100%;
 }
-.container{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    margin: 1%;
+
+.start_button{
+    margin: 10px;
+    text-wrap: nowrap;
+    width: fit-content;
+    color: var(--color3);
+    background-color: var(--color1);
+    border: 0px
 }
-h1{
-    display: fle;
+
+.start_button:hover{
+    color: var(--color1);
+    background-color: var(--color3);
 }
+
+.start_button:focus-visible{
+    color: var(--color1);
+    background-color: var(--color3);
+    border: 2px solid var(--color5);
+    user-select: none;
+}
+
 .board{
     width: 756px;
 }
 .presentation{
     width: 33%;
-}
-.row{
-    display: flex;
-    flex-direction: row;
 }
 .text{
     text-align: center;
@@ -48,8 +88,52 @@ h1{
 button{
     width: 50px;
 }
+
+
+.hand-base{
+    position: fixed;
+    overflow: hidden;
+    z-index: 10;
+    transition: height 0.3s ease;
+    transform: translateX(-50%);
+    bottom: 10px;
+    left: 50%;
+    height: 100px;
+    width: fit-content;
+}
+
+.hand-base:hover{
+    height: 300px;
+    overflow: visible;
+}
+
+.hand:hover{
+    transform: scale(120%);
+}
+
+.hand:focus-visible{
+    transform: scale(120%);
+}
+
+.hand-base:focus-within{
+    height: 300px;
+    overflow: visible;
+}
+
+.hand{
+    margin: 10px;
+    border: 0px;
+    transition: transform 0.3s ease;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
 .selected{
-    border: 2px solid yellow;
+    border: 2px solid var(--color2);
+    border-radius: 10px;
 }
 @media only screen and (max-width: 768px) {
     .tile{
@@ -59,10 +143,6 @@ button{
     .board{
         width: 189px;
         margin: 0 auto;
-    }
-    .container{
-        flex-direction: column-reverse;
-        justify-content: start;
     }
     .presentation{
         width: 100%;
